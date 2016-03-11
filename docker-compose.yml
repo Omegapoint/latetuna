@@ -20,3 +20,5 @@ kafka:
 
 gui:
   build: ./gui
+  ports:
+    - "8080:8080"
