@@ -1,5 +1,6 @@
-package com.omegapoint.latetuna;
+package com.omegapoint.latetuna.proposal;
 
+import com.omegapoint.latetuna.proposal.ProposalApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;

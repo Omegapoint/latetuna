@@ -1,4 +1,4 @@
-package com.omegapoint.latetuna.resource;
+package com.omegapoint.latetuna.proposal.resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
