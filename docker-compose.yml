@@ -1,5 +1,7 @@
 proposal:
   build: ./proposal
+conference:
+  build: ./conference
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
