@@ -1,0 +1,13 @@
+{
+  "name": "gui",
+  "version": "1.0.0",
+  "description": "GUI for the system",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
