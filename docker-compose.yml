@@ -1,5 +1,7 @@
 proposal:
   build: ./proposal
+conference:
+  build: ./conference
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
@@ -15,3 +17,8 @@ kafka:
     KAFKA_CREATE_TOPICS: "test:1:1"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
+
+gui:
+  build: ./gui
+  ports:
+    - "8080:8080"
