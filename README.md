@@ -8,3 +8,6 @@ MacOSX
 ```docker-machine create --driver virtualbox machine_name```
 
 ```eval "$(docker-machine env machine_name)"```
+
+## Start all containers
+```docker-compose up```
