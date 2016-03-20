@@ -15,7 +15,7 @@ var http = require('http'),
 var proxyRules = new HttpProxyRules({
     rules: {
         '.*/proposal': 'http://proposal:8080',
-        '.*/conference/': 'http://conference:8080'
+        '.*/conference': 'http://conference:8080'
     },
     default: 'http://localhost:9000'
 });

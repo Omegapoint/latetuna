@@ -1,4 +1,4 @@
-package com.omegapoint.latetuna;
+package com.omegapoint.latetuna.conference;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
