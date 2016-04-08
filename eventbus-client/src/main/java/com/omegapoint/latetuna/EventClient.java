@@ -1,0 +1,38 @@
+package com.omegapoint.latetuna;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import java.util.Properties;
+
+public class EventClient {
+
+    private final Producer<String, String> producer;
+
+    public EventClient() {
+        producer = createProducer();
+    }
+
+    public void send() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Sending " + i);
+            producer.send(new ProducerRecord<String, String>("test", Integer.toString(i), Integer.toString(i)));
+        }
+        producer.close();
+    }
+
+    private Producer<String, String> createProducer() {
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "localhost:9092");
+//        props.put("acks", "all");
+//        props.put("retries", 0);
+//        props.put("batch.size", 16384);
+//        props.put("linger.ms", 1);
+//        props.put("buffer.memory", 33554432);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        return new KafkaProducer<>(props);
+    }
+}
