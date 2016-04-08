@@ -24,3 +24,7 @@ gui:
   links:
     - proposal
     - conference
+jenkins:
+  build: ./ci
+  ports:
+    - "8090:8080"
