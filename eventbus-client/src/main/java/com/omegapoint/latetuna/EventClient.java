@@ -14,17 +14,14 @@ public class EventClient {
         producer = createProducer();
     }
 
-    public void send() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println("Sending " + i);
-            producer.send(new ProducerRecord<String, String>("test", Integer.toString(i), Integer.toString(i)));
-        }
-        producer.close();
+    public void send(String topic, String key, String value) {
+        producer.send(new ProducerRecord<String, String>(topic, key, value));
+        producer.flush();
     }
 
     private Producer<String, String> createProducer() {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("bootstrap.servers", "kafka:9092");
 //        props.put("acks", "all");
 //        props.put("retries", 0);
 //        props.put("batch.size", 16384);

@@ -5,6 +5,14 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+    maven {
+        url "http://localhost:8081/content/groups/public"
+    }
+    mavenCentral()
+}
 
 jar {
 	baseName = 'latetuna.eventbus-client'
@@ -13,15 +21,24 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-	mavenCentral()
-}
-
 dependencies {
     compile('org.apache.kafka:kafka-clients:0.9.0.0')
-    testCompile('org.junit:surefire-junit5:5.0.0-ALPHA')
+    testCompile('junit:junit:4.12')
 }
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.9'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://localhost:8081/content/repositories/snapshots") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            pom.version = "1.0-SNAPSHOT"
+            pom.artifactId = "eventbus-client"
+            pom.groupId = "se.omegapoint"
+        }
+    }
 }

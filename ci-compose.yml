@@ -1,0 +1,14 @@
+nexus:
+  build: ./ci/nexus
+  ports:
+    - "8081:8081"
+#jenkins:
+#  build: ./ci
+#  ports:
+#    - "8090:8080"
+#  volumes_from:
+#    - jenkinsdata
+#jenkinsdata:
+#  image: cogniteev/echo
+#  volumes:
+#    - /var/jenkins_home
