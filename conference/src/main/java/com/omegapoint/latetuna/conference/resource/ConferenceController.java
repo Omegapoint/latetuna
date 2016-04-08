@@ -18,6 +18,7 @@ public class ConferenceController {
 
     @RequestMapping(value = "/", method = GET)
     public String list() {
+        //TODO: This is a test event, move it to the "create" method and adapt it
         eventClient.send("conference", UUID.randomUUID().toString(),"I am a conference!!");
         return "List conferences";
     }

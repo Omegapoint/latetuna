@@ -2,6 +2,10 @@ proposal:
   build: ./proposal
 conference:
   build: ./conference
+  links:
+    - kafka
+  external_links:
+    - latetuna_nexus_1:nexus
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
@@ -13,6 +17,7 @@ kafka:
   links:
     - zookeeper:zk
   environment:
+    # TODO: This does not work on Linux
     KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
     KAFKA_CREATE_TOPICS: "test:1:1"
   volumes:
@@ -22,7 +27,8 @@ gui:
   ports:
     - "8080:8080"
   links:
-    - proposal
+    # build error in proposal currently
+    #- proposal
     - conference
 jenkins:
   build: ./ci
