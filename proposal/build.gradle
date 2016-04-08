@@ -7,13 +7,11 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("au.com.dius:pact-jvm-provider-gradle_2.11:3.2.6")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
-apply plugin: 'au.com.dius.pact'
 
 jar {
 	baseName = 'latetuna.proposal'
@@ -35,50 +33,4 @@ dependencies {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.9'
-}
-/*
-uploadArchives {
-	repositories {
-		mavenDeployer {
-			repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
-				authentication(userName: "admin", password: "admin123")
-			}
-			pom.version = "1.0-SNAPSHOT"
-			pom.artifactId = "eventbus-client"
-			pom.groupId = "se.omegapoint"
-		}
-	}
-}
-*/
-
-pact {
-	serviceProviders {
-		// You can define as many as you need, but each must have a unique name
-		conferenceProvider1 {
-			// All the provider properties are optional, and have sensible defaults (shown below)
-			protocol = 'http'
-			host = 'localhost'
-			port = 8080
-			path = '/'
-
-			// Again, you can define as many consumers for each provider as you need, but each must have a unique name
-			hasPactWith('proposalConsumer') {
-
-				// currently supports a file path using file() or a URL using url()
-				pactFile = file('src/test/resources/pacts/provider1-consumer1-pact.json')
-
-			}
-
-			// Or if you have many pact files in a directory
-			hasPactsWith('manyConsumers') {
-
-				// Will define a consumer for each pact file in the directory.
-				// Consumer name is read from contents of pact file
-				pactFileLocation = file('src/test/resources/pacts')
-
-			}
-
-		}
-
-	}
 }

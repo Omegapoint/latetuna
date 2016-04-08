@@ -1,0 +1,34 @@
+{
+    "consumer": {
+        "name": "proposal"
+    },
+    "provider": {
+        "name": "conference"
+    },
+    "messages": [
+        {
+            "metaData": {
+                "contentType": "application/json",
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+            "providerState": "CreatedConference",
+            "contentType": "application/json",
+            "contents": {
+                "city": "London",
+                "name": "QCon"
+            },
+            "matchingRules": {
+                
+            },
+            "description": "a test message"
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.2.6"
+        }
+    }
+}
