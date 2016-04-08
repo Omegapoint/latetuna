@@ -1,5 +1,7 @@
 nexus:
   build: ./ci/nexus
+  ports:
+    - "8081:8081"
 #jenkins:
 #  build: ./ci
 #  ports:
