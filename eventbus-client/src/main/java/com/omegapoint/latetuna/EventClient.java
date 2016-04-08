@@ -21,7 +21,7 @@ public class EventClient {
 
     private Producer<String, String> createProducer() {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("bootstrap.servers", "kafka:9092");
 //        props.put("acks", "all");
 //        props.put("retries", 0);
 //        props.put("batch.size", 16384);

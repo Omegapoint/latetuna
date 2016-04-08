@@ -22,7 +22,7 @@ targetCompatibility = 1.8
 
 repositories {
     maven {
-        url "http://localhost:8081/content/groups/public"
+        url "http://nexus:8081/content/groups/public"
     }
 	mavenCentral()
 }
