@@ -1,1 +1,3 @@
 scm-sync-configuration:0.0.9
+github:1.18.1
+
