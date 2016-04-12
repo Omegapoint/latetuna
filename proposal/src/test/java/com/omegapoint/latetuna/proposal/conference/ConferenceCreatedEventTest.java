@@ -7,7 +7,7 @@ import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactVerification;
 import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.model.v3.messaging.MessagePact;
-import junit.framework.Assert;
+import com.omegapoint.latetuna.proposal.event.ConferenceEvent;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ConferenceCreatedEventTest {
     @Rule
     public MessagePactProviderRule mockProvider = new MessagePactProviderRule(this);
 
-    @Pact(provider = "test_provider", consumer = "test_consumer_v3")
+    @Pact(provider = "conference", consumer = "proposal")
     public MessagePact createPact(MessagePactBuilder builder) {
         PactDslJsonBody body = new PactDslJsonBody();
         body.stringValue("name", "QCon");
@@ -30,7 +30,7 @@ public class ConferenceCreatedEventTest {
         Map<String, String> metadata = new HashMap<>();
         metadata.put("contentType", "application/json");
 
-        return builder.given("SomeProviderState")
+        return builder.given("CreatedConference")
                 .expectsToReceive("a test message")
                 .withMetadata(metadata)
                 .withContent(body)
@@ -38,10 +38,13 @@ public class ConferenceCreatedEventTest {
     }
 
     @Test
-    @PactVerification({"test_provider", "SomeProviderState"})
-    public void test() throws Exception {
-        System.out.println(new String(currentMessage));
-        assertThat(new String(currentMessage));
+    @PactVerification({"conference", "CreatedConference"})
+    public void reciveAConferenceEvent() throws Exception {
+        String json = new String(currentMessage);
+        assertThat(json).isNotNull();
+        ConferenceEvent conferenceEvent = ConferenceEvent.fromJson(json);
+        assertThat(conferenceEvent.name()).isEqualTo("QCon");
+        assertThat(conferenceEvent.city()).isEqualTo("London");
     }
 
     public void setMessage(byte[] messageContents) {
