@@ -3,7 +3,11 @@
 
 proposal:
   volumes:
-    - ~/gradle:/.gradle
+    - ~/.gradle:/.gradle
+  environment:
+    MAVEN_LOCAL: "true"
 conference:
   volumes:
-    - ~/gradle:/.gradle
+    - ~/.gradle:/.gradle
+  environment:
+    MAVEN_LOCAL": "true"

@@ -23,9 +23,13 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    maven {
+		if (System.getenv("MAVEN_LOCAL")) {
+			mavenLocal()
+		} else {
+    	maven {
         url "http://nexus:8081/content/groups/public"
-    }
+    	}
+		}
 	mavenCentral()
 }
 
@@ -56,11 +60,11 @@ pact {
 			}
 
 			// Or if you have many pact files in a directory
-			hasPactsWith('manyConsumers') {
+			//hasPactsWith('manyConsumers') {
 				// Will define a consumer for each pact file in the directory.
 				// Consumer name is read from contents of pact file
-				pactFileLocation = file('src/test/resources/pacts')
-			}
+				//pactFileLocation = file('src/test/resources/pacts')
+			//}
 		}
 	}
 }

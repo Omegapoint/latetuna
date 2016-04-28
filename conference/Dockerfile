@@ -12,4 +12,4 @@ RUN ["./gradlew"]
 ADD . ./
 RUN ["chmod", "a+x", "gradlew"]
 
-ENTRYPOINT ["./gradlew", "bootRun"]
+ENTRYPOINT ["./gradlew", "build", "bootRun"]
