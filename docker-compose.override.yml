@@ -1,0 +1,9 @@
+# Developer overrides, included by defualt by Docker. Mounts local gradle
+# cache to avoid multiple downloads.
+
+proposal:
+  volumes:
+    - ~/gradle:/.gradle
+conference:
+  volumes:
+    - ~/gradle:/.gradle
