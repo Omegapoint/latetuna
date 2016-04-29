@@ -13,3 +13,6 @@ conference:
     - ~/.m2:/root/.m2
   environment:
     MAVEN_LOCAL: "true"
+kafka:
+  volumes:
+    - ./data_kafka:/kafka
