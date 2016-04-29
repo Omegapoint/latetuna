@@ -4,9 +4,6 @@ conference:
   build: ./conference
   links:
     - kafka
-# TODO: Move to another compose-file?
-#  external_links:
-#    - latetuna_nexus_1:nexus
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
@@ -28,6 +25,5 @@ gui:
   ports:
     - "8080:8080"
   links:
-    # build error in proposal currently
-    #- proposal
+    - proposal
     - conference

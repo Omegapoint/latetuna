@@ -35,7 +35,7 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-    compile('se.omegapoint:eventbus-client:1.0-SNAPSHOT')
+  compile('se.omegapoint:latetuna.eventbus-client:1.0-SNAPSHOT')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

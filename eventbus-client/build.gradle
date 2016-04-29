@@ -7,11 +7,12 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'maven'
 
+group = "se.omegapoint"
+version = "1.0-SNAPSHOT"
+
 repositories {
-    maven {
-        url "http://localhost:8081/content/groups/public"
-    }
-    mavenCentral()
+	mavenLocal()
+  mavenCentral()
 }
 
 jar {
