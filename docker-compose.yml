@@ -1,11 +1,9 @@
 proposal:
-  build: ./proposal
+  image: latetuna.proposal:latest
 conference:
-  build: ./conference
+  image: latetuna.conference:latest
   links:
     - kafka
-  external_links:
-    - latetuna_nexus_1:nexus
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
@@ -27,6 +25,5 @@ gui:
   ports:
     - "8080:8080"
   links:
-    # build error in proposal currently
-    #- proposal
+    - proposal
     - conference
