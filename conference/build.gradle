@@ -3,17 +3,22 @@ buildscript {
 		springBootVersion = '1.3.3.RELEASE'
 	}
 	repositories {
+        mavenLocal()
 		mavenCentral()
+        jcenter()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("au.com.dius:pact-jvm-provider-gradle_2.11:3.2.6")
+        classpath 'com.bmuschko:gradle-docker-plugin:2.6.8'
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'au.com.dius.pact'
+apply plugin: 'application'
+apply plugin: 'com.bmuschko.docker-java-application'
 
 jar {
 	baseName = 'latetuna.conference'
@@ -21,23 +26,27 @@ jar {
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+mainClassName = 'com.omegapoint.latetuna.conference.ConferenceApplication'
 
 repositories {
-    maven {
-        url "http://nexus:8081/content/groups/public"
-    }
+    mavenLocal()
+//    maven {
+//        url "http://nexus:8081/content/groups/public"
+//    }
 	mavenCentral()
+    jcenter()
 }
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-    compile('se.omegapoint:eventbus-client:1.0-SNAPSHOT')
+    compile('se.omegapoint:latetuna.eventbus-client:1.0-SNAPSHOT')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.9'
 }
+
 
 pact {
 	serviceProviders {
@@ -63,4 +72,12 @@ pact {
 			}
 		}
 	}
+}
+
+docker {
+    url = 'unix:///var/run/docker.sock'
+    javaApplication {
+        baseImage = 'java:openjdk-8-jre'
+        maintainer = 'LateTuna Team'
+    }
 }
