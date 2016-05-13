@@ -9,6 +9,4 @@ jenkins:
   volumes_from:
     - jenkinsdata
 jenkinsdata:
-  image: cogniteev/echo
-  volumes:
-    - /var/jenkins_home
+  build: jenkins-data
