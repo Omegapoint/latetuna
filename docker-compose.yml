@@ -1,5 +1,7 @@
 proposal:
   image: latetuna/proposal:latest
+  links:
+    - kafka
 conference:
   image: latetuna/conference:latest
   links:

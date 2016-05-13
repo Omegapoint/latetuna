@@ -1,6 +1,6 @@
 package com.omegapoint.latetuna.conference.resource;
 
-import com.omegapoint.latetuna.EventClient;
+import com.omegapoint.latetuna.eventbus.client.EventClient;
 import org.springframework.stereotype.Component;
 
 @Component
