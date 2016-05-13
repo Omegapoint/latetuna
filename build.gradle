@@ -1,24 +1,24 @@
 allprojects {
-  buildscript {
-  	repositories {
-  		mavenCentral()
-      jcenter()
-  	}
-  }
+    buildscript {
+        repositories {
+            mavenCentral()
+            jcenter()
+        }
+    }
 }
 
 subprojects {
-  apply plugin: 'java'
+    apply plugin: 'java'
 
-  sourceCompatibility = 1.8
-  targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-  repositories {
-  	mavenCentral()
-    jcenter()
-  }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 
-  jar {
-    manifest.attributes provider: 'gradle'
-  }
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
 }
