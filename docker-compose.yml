@@ -25,6 +25,5 @@ gui:
   ports:
     - "8080:8080"
   links:
-    # build error in proposal currently
-    #- proposal
+    - proposal
     - conference
