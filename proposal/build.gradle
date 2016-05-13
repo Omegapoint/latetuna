@@ -12,7 +12,6 @@ buildscript {
 	}
 }
 
-apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'application'
 apply plugin: 'com.bmuschko.docker-java-application'
@@ -24,12 +23,8 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-	mavenLocal()
-	mavenCentral()
-}
-
 dependencies {
+	compile project(':eventbus-client')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('au.com.dius:pact-jvm-consumer-junit_2.11:3.2.6')
 	testCompile('org.assertj:assertj-core:3.4.0')
