@@ -15,8 +15,8 @@ kafka:
   links:
     - zookeeper:zk
   environment:
-    # TODO: This does not work on Linux
-    KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+    # Note: Non-Linux users must set this
+    KAFKA_ADVERTISED_HOST_NAME:
     KAFKA_CREATE_TOPICS: "test:1:1"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
