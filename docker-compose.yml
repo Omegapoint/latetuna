@@ -1,5 +1,5 @@
 proposal:
-  build: ./proposal
+  image: latetuna.proposal:latest
 conference:
   image: latetuna.conference:latest
   links:
