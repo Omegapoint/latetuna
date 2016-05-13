@@ -1,7 +1,7 @@
 proposal:
-  image: latetuna.proposal:latest
+  image: latetuna/proposal:latest
 conference:
-  image: latetuna.conference:latest
+  image: latetuna/conference:latest
   links:
     - kafka
 zookeeper:
