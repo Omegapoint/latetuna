@@ -2,6 +2,7 @@ allprojects {
   buildscript {
   	repositories {
   		mavenCentral()
+      jcenter()
   	}
   }
 }
@@ -14,6 +15,7 @@ subprojects {
 
   repositories {
   	mavenCentral()
+    jcenter()
   }
 
   jar {
