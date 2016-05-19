@@ -1,12 +1,7 @@
-var CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        Hello, world! I am a CommentBox.
-      </div>
-    );
-  }
-});
+import React from "react";
+import ReactDOM from "react-dom";
+import CommentBox from "./component/CommentBox.js"
+
 ReactDOM.render(
   <CommentBox />,
   document.getElementById('content')
