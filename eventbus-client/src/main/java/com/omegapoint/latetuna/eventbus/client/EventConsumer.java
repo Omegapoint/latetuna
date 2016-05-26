@@ -27,7 +27,7 @@ public class EventConsumer {
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(1000);
                 for (ConsumerRecord<String, String> record : records)
-                    System.out.println(record.offset() + ": " + record.value());
+                    System.out.println(record.offset() + ": " + record.key() + " - " + record.value());
             }
         } finally {
             consumer.close();
