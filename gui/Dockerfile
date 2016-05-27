@@ -8,4 +8,6 @@ RUN npm install
 
 ADD . ./
 
+RUN npm run build
+
 CMD node .
