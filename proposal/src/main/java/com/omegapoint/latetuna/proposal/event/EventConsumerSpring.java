@@ -1,15 +1,20 @@
 package com.omegapoint.latetuna.proposal.event;
 
 import com.omegapoint.latetuna.eventbus.client.EventConsumer;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EventConsumerSpring {
 
-    public EventConsumerSpring() {
-        new Thread(() -> {
-            EventConsumer eventConsumer = new EventConsumer();
-            eventConsumer.listen("conference");
-        }).run();
+	private final EventConsumer eventConsumer;
+
+	public EventConsumerSpring() {
+		eventConsumer = new EventConsumer("conference");
     }
+
+	@Scheduled(fixedDelay = 1000)
+	public void consumeNewEvents() {
+		eventConsumer.consumeNewEvents();
+	}
 }
