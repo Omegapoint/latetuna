@@ -2,6 +2,7 @@ FROM jenkins:2.0-beta-1
 
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+USER root
 RUN apt-key update && apt-get update && apt-get install -y software-properties-common && apt-get clean
 
 # install gradle
@@ -10,3 +11,4 @@ RUN add-apt-repository ppa:cwchien/gradle && \
   apt-key update && apt-get update && \
   apt-get install -y gradle && \
   apt-get clean
+USER jenkins
