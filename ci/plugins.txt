@@ -1,3 +1,4 @@
 scm-sync-configuration:0.0.9
 github:1.18.1
 copyartifact:1.38
+ansicolor:0.4.2
