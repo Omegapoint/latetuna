@@ -1,32 +1,34 @@
-proposal:
-  image: latetuna/proposal:latest
-  links:
-    - kafka
-conference:
-  image: latetuna/conference:latest
-  links:
-    - kafka
-zookeeper:
-  image: wurstmeister/zookeeper
-  ports:
+version: '2'
+services:
+  proposal:
+    image: latetuna/proposal:latest
+    links:
+      - kafka
+  conference:
+    image: latetuna/conference:latest
+    links:
+      - kafka
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
     - "2181:2181"
-kafka:
-  build: ./eventbus
-  ports:
-    - "9092:9092"
-  links:
-    - zookeeper:zk
-  environment:
-    # Note: Non-Linux users must set this
-    KAFKA_ADVERTISED_HOST_NAME:
-    KAFKA_CREATE_TOPICS: "test:1:1"
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./data_kafka:/kafka
-gui:
-  build: ./gui
-  ports:
-    - "8080:8080"
-  links:
-    - proposal
-    - conference
+  kafka:
+    build: ./eventbus
+    ports:
+      - "9092:9092"
+    links:
+      - zookeeper:zk
+    environment:
+      # Note: Non-Linux users must set this
+      KAFKA_ADVERTISED_HOST_NAME:
+      KAFKA_CREATE_TOPICS: "test:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data_kafka:/kafka
+  gui:
+    build: ./gui
+    ports:
+      - "8080:8080"
+    links:
+      - proposal
+      - conference
