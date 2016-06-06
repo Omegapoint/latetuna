@@ -2,6 +2,7 @@
 
 if [ $# -ne 1 ]; then
     echo "Usage: . setup.sh <machine_name>"
+    exit 1
 fi
 
 MACHINE_NAME=$1
