@@ -8,10 +8,17 @@ services:
     image: latetuna/conference:latest
     links:
       - kafka
+  gui:
+    build: ./gui
+    ports:
+      - "3000:3000"
+    links:
+      - proposal
+      - conference
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
-    - "2181:2181"
+      - "2181:2181"
   kafka:
     build: ./eventbus
     ports:
@@ -25,10 +32,3 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data_kafka:/kafka
-  gui:
-    build: ./gui
-    ports:
-      - "8080:8080"
-    links:
-      - proposal
-      - conference
