@@ -10,20 +10,17 @@ In house learning project. The purpose of this project is to investigate and try
 
 #### MacOSX
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
-2. Install DockerToolbox: https://www.docker.com/products/docker-toolbox
-3. Create a VirtualBox machine to handle latetuna:
-
+1. Install DockerToolbox: https://www.docker.com/products/docker-toolbox
+1. Create a VirtualBox machine to handle latetuna:
 ```
 docker-machine create --driver virtualbox latetuna
 ```
-
-4. Bootstrap the environment:
-
+1. Bootstrap the environment:
 ```
 setup.sh latetuna
 ```
 
-## Build images
+#### Build images
 
 ```
 gradle dockerBuildImage
@@ -31,7 +28,7 @@ gradle dockerBuildImage
 
 Pro tip: Gradle supports camelCased shortcuts, so ```gradle dBI``` works as well!
 
-## Start all containers
+#### Start all containers
 ```
 docker-compose up
 ```
