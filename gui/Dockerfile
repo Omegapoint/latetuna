@@ -4,10 +4,10 @@ WORKDIR /app
 
 ADD package.json ./
 
+RUN apk add --no-cache make gcc g++ python
+
 RUN npm install
 
 ADD . ./
 
-RUN npm run build
-
-CMD node .
+CMD ["npm", "start"]
