@@ -1,4 +1,4 @@
-# latetuna
+# Late Tuna
 
 In house learning project. The purpose of this project is to investigate and try technology and archtecture that are new to us. The system we're buildning is a conference system. Some of the features we have in mind is:
 * create a new conference
