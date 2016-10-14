@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'com.bmuschko:gradle-docker-plugin:2.6.8'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
     }
 }
 
@@ -36,12 +36,14 @@ task wrapper(type: Wrapper) {
 }
 
 docker {
+    certPath = new File(System.properties['user.home'], '.docker/machine/machines/default')
     if (System.env.DOCKER_HOST) {
         url = "$System.env.DOCKER_HOST".replace("tcp", "https")
     } else {
         // Fallback, only works in Linux
         url = 'unix:///var/run/docker.sock'
     }
+
     javaApplication {
         baseImage = 'java:openjdk-8-jre'
         maintainer = 'LateTuna Team'

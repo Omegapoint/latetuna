@@ -9,7 +9,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("au.com.dius:pact-jvm-provider-gradle_2.11:3.2.6")
-        classpath 'com.bmuschko:gradle-docker-plugin:2.6.8'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
 	}
 }
 
@@ -65,6 +65,7 @@ pact {
 }
 
 docker {
+	certPath = new File(System.properties['user.home'], '.docker/machine/machines/default')
 	if (System.env.DOCKER_HOST) {
 		url = "$System.env.DOCKER_HOST".replace("tcp","https")
 	} else {
