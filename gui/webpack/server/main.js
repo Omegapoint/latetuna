@@ -17,4 +17,12 @@ app.use(webpackDev(compiler, {
 
 app.use(webpackHot(compiler));
 
+const httpProxy = require("http-proxy");
+const apiProxy = httpProxy.createProxyServer();
+
+app.all("/api/:service/*", function (req, res) {
+  apiProxy.web(req, res, { "target": "http://" + req.param.service + ":8080" });
+  console.log(req.path);
+});
+
 app.listen(webpackConfig.hotPort);

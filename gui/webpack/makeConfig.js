@@ -25,7 +25,7 @@ const loaders = {
 
 const serverIp = config.remoteHotReload
   ? ip.address() // Dynamic IP address enables hot reload on remote devices.
-  : 'localhost';
+  : 'localdocker';
 
 const makeConfig = options => {
   const {

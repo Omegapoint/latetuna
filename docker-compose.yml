@@ -15,6 +15,8 @@ services:
     links:
       - proposal
       - conference
+    environment:
+      HOT_RELOAD_PORT: 8100
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
@@ -29,6 +31,7 @@ services:
       # Note: Non-Linux users must set this
       KAFKA_ADVERTISED_HOST_NAME:
       KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data_kafka:/kafka

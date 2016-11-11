@@ -4,7 +4,7 @@ import Button from './Button';
 const CommentBox = ({ ...props }: Props) => {
     const postConference = () => {
           var xhttp = new XMLHttpRequest();
-          xhttp.open("POST", "/conference", true);
+          xhttp.open("POST", "/api/conference", true);
           xhttp.setRequestHeader("Content-type", "application/json");
           xhttp.send('{"name": "Foo"}');
     };
@@ -18,3 +18,4 @@ const CommentBox = ({ ...props }: Props) => {
 };
 
 export default CommentBox
+
