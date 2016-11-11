@@ -17,7 +17,8 @@ docker-machine create --driver virtualbox latetuna
 ```
 1. Bootstrap the environment:
 ```
-setup.sh latetuna
+# Yes, that's a dot at the beginning of this line:
+. setup.sh latetuna
 ```
 
 #### Build images
