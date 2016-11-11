@@ -1,5 +1,7 @@
 rootProject.name='latetuna'
 
+include 'common'
 include 'eventbus-client'
 include 'conference'
 include 'proposal'
+
