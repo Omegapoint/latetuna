@@ -7,20 +7,12 @@
     },
     "messages": [
         {
-            "metaData": {
-                "contentType": "application/json",
-                "Content-Type": "application/json; charset=UTF-8"
-            },
-            "providerState": "CreatedConference",
-            "contentType": "application/json",
+            "description": "a test message",
             "contents": {
                 "city": "London",
                 "name": "QCon"
             },
-            "matchingRules": {
-                
-            },
-            "description": "a test message"
+            "providerState": "CreatedConference"
         }
     ],
     "metadata": {
@@ -28,7 +20,7 @@
             "version": "3.0.0"
         },
         "pact-jvm": {
-            "version": "3.2.6"
+            "version": "3.5.0-beta.2"
         }
     }
 }

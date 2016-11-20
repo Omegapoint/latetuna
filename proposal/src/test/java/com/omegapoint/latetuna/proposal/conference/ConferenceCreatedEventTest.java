@@ -18,39 +18,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConferenceCreatedEventTest {
 
-    @Rule
-    public MessagePactProviderRule mockProvider = new MessagePactProviderRule(this);
+	private byte[] currentMessage;
 
-    @Pact(provider = "conference", consumer = "proposal")
-    public MessagePact createPact(MessagePactBuilder builder) {
-        PactDslJsonBody body = new PactDslJsonBody();
-        body.stringValue("name", "QCon");
-        body.stringValue("city", "London");
+	@Rule
+	public MessagePactProviderRule mockProvider = new MessagePactProviderRule(this);
 
-        Map<String, String> metadata = new HashMap<>();
-        metadata.put("contentType", "application/json");
+	@Pact(provider = "conference", consumer = "proposal")
+	public MessagePact createPact(MessagePactBuilder builder) {
+		PactDslJsonBody body = new PactDslJsonBody();
+		body.stringValue("name", "QCon");
+		body.stringValue("city", "London");
 
-        return builder.given("CreatedConference")
-                .expectsToReceive("a test message")
-                .withMetadata(metadata)
-                .withContent(body)
-                .toPact();
-    }
+		Map<String, String> metadata = new HashMap<>();
+		metadata.put("contentType", "application/json");
 
-    @Test
-    @PactVerification({"conference", "CreatedConference"})
-    public void reciveAConferenceEvent() throws Exception {
-        String json = new String(currentMessage);
-        assertThat(json).isNotNull();
-        ConferenceEvent conferenceEvent = ConferenceEvent.fromJson(json);
-        assertThat(conferenceEvent.name()).isEqualTo("QCon");
-        assertThat(conferenceEvent.city()).isEqualTo("London");
-    }
+		return builder.given("a conference service")
+				.expectsToReceive("when a conference is created it")
+				.withMetadata(metadata)
+				.withContent(body)
+				.toPact();
+	}
 
-    public void setMessage(byte[] messageContents) {
-        currentMessage = messageContents;
-    }
+	@Test
+	@PactVerification("conference")
+	public void receiveAConferenceEvent() throws Exception {
+		String json = new String(currentMessage);
+		assertThat(json).isNotNull();
+		ConferenceEvent conferenceEvent = ConferenceEvent.fromJson(json);
+		assertThat(conferenceEvent.name()).isEqualTo("QCon");
+		assertThat(conferenceEvent.city()).isEqualTo("London");
+	}
 
-    private byte[] currentMessage;
-
+	public void setMessage(byte[] messageContents) {
+		currentMessage = messageContents;
+	}
 }

@@ -1,6 +1,9 @@
+version = '0.0.1'
+
 buildscript {
     ext {
         springBootVersion = '1.4.1.RELEASE'
+
     }
     repositories {
         mavenCentral()
@@ -8,12 +11,15 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
+        classpath('com.bmuschko:gradle-docker-plugin:3.0.3')
+        classpath("au.com.dius:pact-jvm-provider-gradle_2.11:3.5.0-beta.2")
+
     }
 }
 
 apply plugin: 'spring-boot'
 apply plugin: 'application'
+apply plugin: 'au.com.dius.pact'
 apply plugin: 'com.bmuschko.docker-java-application'
 
 jar {
@@ -23,10 +29,14 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+test {
+    systemProperties['pact.rootDir'] = "$buildDir/pacts"
+}
+
 dependencies {
     compile project(':eventbus-client')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('au.com.dius:pact-jvm-consumer-junit_2.11:3.2.6')
+    compile('au.com.dius:pact-jvm-consumer-junit_2.11:3.5.0-beta.2')
     testCompile('org.assertj:assertj-core:3.4.0')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
@@ -34,6 +44,15 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
 }
+
+pact {
+    publish {
+
+        pactDirectory = "${buildDir}/pacts"
+        pactBrokerUrl = "http://$System.env.DOCKER_IP:80"
+    }
+}
+
 
 docker {
     if (System.env.DOCKER_CERT_PATH) {

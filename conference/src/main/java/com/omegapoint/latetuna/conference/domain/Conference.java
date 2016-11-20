@@ -11,10 +11,14 @@ public class Conference {
     private final UUID id;
 
     @JsonProperty
+    private final String city;
+
+    @JsonProperty
     private String name;
 
     @JsonCreator
-    public Conference(@JsonProperty("name") String name) {
+    public Conference(@JsonProperty("name") String name, @JsonProperty("name") String city) {
+        this.city = city;
         this.id = UUID.randomUUID();
         this.name = name;
     }
@@ -25,5 +29,9 @@ public class Conference {
 
     public String name() {
         return this.name;
+    }
+
+    public String city() {
+        return this.city;
     }
 }

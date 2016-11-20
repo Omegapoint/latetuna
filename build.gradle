@@ -1,5 +1,7 @@
 apply plugin: 'idea'
 
+ext.dockerIP = 'localhost'
+
 allprojects {
     buildscript {
         repositories {
@@ -8,6 +10,8 @@ allprojects {
         }
     }
 }
+
+
 
 subprojects {
     apply plugin: 'java'
