@@ -29,7 +29,8 @@ function setUpProxy(port, proxyPort) {
 }
 
 function serve(app, port, proxyPort) {
-    app.use(require("express").static('public'));
+    var express = require("express")
+    app.use(express.static('public'));
 
     var logFile = fs.createWriteStream('./app.log', {flags: 'a'});
     app.use(express.logger({stream: logFile}));
