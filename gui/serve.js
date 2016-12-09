@@ -1,3 +1,5 @@
+var fs=require('fs');
+
 function setUpProxy(port, proxyPort) {
   var http = require('http'),
       httpProxy = require('http-proxy'),
