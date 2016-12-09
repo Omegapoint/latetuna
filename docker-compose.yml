@@ -1,3 +1,5 @@
+# Note, you need to set sudo sysctl -w vm.max_map_count=262144
+# for running elk on linux
 version: '2'
 services:
   proposal:
@@ -16,6 +18,7 @@ services:
     links:
       - proposal
       - conference
+      - elk
     environment:
       HOT_RELOAD_PORT: 8100
   zookeeper:
@@ -36,3 +39,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data_kafka:/kafka
+  elk:
+    image: sebp/elk
+    ports:
+    - "5601:5601"
+    - "5044:5044"

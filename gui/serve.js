@@ -1,7 +1,3 @@
-var morgan=require('morgan');
-var fs = require('fs')
-var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
-
 function setUpProxy(port, proxyPort) {
   var http = require('http'),
       httpProxy = require('http-proxy'),
@@ -33,7 +29,6 @@ function setUpProxy(port, proxyPort) {
 function serve(app, port, proxyPort) {
     var express = require("express")
     app.use(express.static('public'));
-    app.use(morgan('combined', {stream: accessLogStream}))
     var p = port || 3000;
     app.listen(p, function () {
       console.log('Express app listening on port ' + p + '!');
