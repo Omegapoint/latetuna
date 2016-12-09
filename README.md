@@ -25,6 +25,7 @@ docker-machine create --driver virtualbox latetuna
 
 ```
 gradle dockerBuildImage
+docker-compose build
 ```
 
 Pro tip: Gradle supports camelCased shortcuts, so ```gradle dBI``` works as well!
