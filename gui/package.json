@@ -13,11 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
+    "fs": "0.0.1-security",
     "http-proxy": "^1.13.2",
     "http-proxy-rules": "^1.0.1",
+    "morgan": "^1.7.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "fs": "0.0.1-security"
+    "react-dom": "^0.14.7"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
