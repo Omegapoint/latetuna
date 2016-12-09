@@ -29,12 +29,12 @@ function setUpProxy(port, proxyPort) {
 function serve(app, port, proxyPort) {
     app.use(require("express").static('public'));
 
-    var p = port || 9000;
+    var p = port || 3000;
     app.listen(p, function () {
       console.log('Express app listening on port ' + p + '!');
     });
 
-    setUpProxy(proxyPort || 8080);
+    setUpProxy(p, proxyPort || 8088);
 }
 
 module.exports = serve;

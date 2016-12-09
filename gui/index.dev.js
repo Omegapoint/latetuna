@@ -11,4 +11,4 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(require("webpack-hot-middleware")(compiler));
 
-require("./serve.js")(app, 9090, 8088);
+require("./serve.js")(app, 3000, 8088);
