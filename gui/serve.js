@@ -29,6 +29,8 @@ function setUpProxy(port, proxyPort) {
 function serve(app, port, proxyPort) {
     app.use(require("express").static('public'));
 
+    var logFile = fs.createWriteStream('./app.log', {flags: 'a'});
+    app.use(express.logger({stream: logFile}));
     var p = port || 3000;
     app.listen(p, function () {
       console.log('Express app listening on port ' + p + '!');
