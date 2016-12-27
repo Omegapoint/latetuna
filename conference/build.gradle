@@ -9,7 +9,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("au.com.dius:pact-jvm-provider-gradle_2.11:3.2.6")
-        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.4'
 	}
 }
 
@@ -65,20 +65,20 @@ pact {
 }
 
 docker {
-	if (System.env.DOCKER_HOST) {
+	/*if (System.env.DOCKER_HOST) {
 		url = "$System.env.DOCKER_HOST".replace("tcp","https")
 	} else {
 		// Fallback, only works in Linux
-		url = 'unix:///var/run/docker.sock'
 	}
     if (System.env.DOCKER_CERT_PATH) {
         certPath = new File(System.env.DOCKER_CERT_PATH)
     } else {
         certPath = new File(System.properties['user.home'], '.docker/machine/machines/default')
-    }
+    }*/
+    url = 'unix:///var/run/docker.sock'
     javaApplication {
         baseImage = 'java:openjdk-8-jre'
         maintainer = 'LateTuna Team'
-				tag = 'latetuna/conference'
+        tag = 'latetuna/conference'
     }
 }
