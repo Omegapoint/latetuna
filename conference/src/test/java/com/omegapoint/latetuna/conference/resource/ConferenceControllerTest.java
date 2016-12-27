@@ -3,6 +3,7 @@ package com.omegapoint.latetuna.conference.resource;
 import com.omegapoint.latetuna.conference.domain.Conference;
 import com.omegapoint.latetuna.conference.domain.ConferenceReadRepository;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -26,12 +27,14 @@ public class ConferenceControllerTest {
         controller = new ConferenceController(conferenceReadRepository,eventClient);
     }
 
+    @Ignore
     @Test
     public void createNewConference() throws Exception {
         whenAConferenceIsCreated();
         thenAnEventIsPublished();
     }
 
+    @Ignore
     @Test
     public void listAllConferences() throws Exception {
         givenAConference();
