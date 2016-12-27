@@ -33,9 +33,10 @@ services:
       - zookeeper:zk
     environment:
       # Note: Non-Linux users must set this
-      KAFKA_ADVERTISED_HOST_NAME:
-      KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_DELETE_TOPIC_ENABLED: "true"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data_kafka:/kafka
