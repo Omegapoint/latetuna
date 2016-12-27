@@ -32,7 +32,7 @@ public class ConferenceController {
 
     @RequestMapping(value = "/", method = POST)
     public String create(@RequestBody Conference conference) {
-        eventClient.send("conference",conference);
+        eventClient.send("test",conference);
         return conference.id().toString();
     }
 }

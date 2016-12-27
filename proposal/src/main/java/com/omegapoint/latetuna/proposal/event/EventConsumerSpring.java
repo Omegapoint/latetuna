@@ -10,7 +10,7 @@ public class EventConsumerSpring {
 	private final EventConsumer eventConsumer;
 
 	public EventConsumerSpring() {
-		eventConsumer = new EventConsumer("conference");
+		eventConsumer = new EventConsumer("test");
     }
 
 	@Scheduled(fixedDelay = 1000)

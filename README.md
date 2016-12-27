@@ -15,6 +15,7 @@ In house learning project. The purpose of this project is to investigate and try
 #### Build images
 ```
 gradle dockerBuildImage
+docker-compose build
 ```
 
 Pro tip: Gradle supports camelCased shortcuts, so ```gradle dBI``` works as well!
