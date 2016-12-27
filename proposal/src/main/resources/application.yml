@@ -1,3 +1,10 @@
 spring:
   application:
     name: proposal
+kafka:
+  broker:
+    address: localhost:9092
+  zookeeper:
+    connect: zk:2181
+  topic: si.topic
+  messageKey: si.key

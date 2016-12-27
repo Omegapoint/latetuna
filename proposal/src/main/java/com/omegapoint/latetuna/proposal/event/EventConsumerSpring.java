@@ -1,20 +1,22 @@
 package com.omegapoint.latetuna.proposal.event;
 
-import com.omegapoint.latetuna.eventbus.client.EventConsumer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EventConsumerSpring {
 
-	private final EventConsumer eventConsumer;
+	private final ConferenceConsumer consumer;
 
-	public EventConsumerSpring() {
-		eventConsumer = new EventConsumer("test");
+	@Autowired
+	public EventConsumerSpring(ConferenceConsumer consumer) {
+		this.consumer = consumer;
     }
 
 	@Scheduled(fixedDelay = 1000)
 	public void consumeNewEvents() {
-		eventConsumer.consumeNewEvents();
+		consumer.receive();
 	}
 }

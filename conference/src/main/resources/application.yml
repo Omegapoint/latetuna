@@ -1,3 +1,10 @@
 spring:
   application:
     name: conference
+kafka:
+  broker:
+    address: kafka:9092
+  zookeeper:
+    connect: zk:2181
+  topic: si.topic
+  messageKey: si.key
