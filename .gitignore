@@ -1,5 +1,6 @@
 .idea
 .gradle
+.DS_Store
 data_kafka/
 latetuna.iml
 latetuna.ipr
