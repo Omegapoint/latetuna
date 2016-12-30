@@ -6,10 +6,18 @@ services:
     image: latetuna/proposal:latest
     links:
       - kafka
+#    environment:
+#      VIRTUAL_HOST: "*:4000/proposal"
+    ports:
+      - "8090:8080"
   conference:
     image: latetuna/conference:latest
     links:
       - kafka
+    ports:
+      - "8091:8080"
+#    environment:
+#      VIRTUAL_HOST: "*:4000/conference"
   gui:
     build: ./gui
     ports:
@@ -45,3 +53,16 @@ services:
     ports:
     - "5601:5601"
     - "5044:5044"
+#  lb:
+#    image: dockercloud/haproxy
+#    depends_on:
+#      - proposal
+#      - conference
+#    links:
+#      - conference
+#      - proposal
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    ports:
+#      - "4000:80"
+#      - "1936:1936"
