@@ -18,11 +18,10 @@ public class ConferenceConsumer implements Consumer{
 
 	@Override
 	public void receive() {
-		Message<?> message = pollableChannel.receive(10000);
+		Message<?> message = pollableChannel.receive(100);
 		while (message != null) {
 			System.out.println(message);
-			message = pollableChannel.receive(10000);
+			message = pollableChannel.receive(100);
 		}
-
 	}
 }

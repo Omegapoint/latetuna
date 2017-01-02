@@ -17,7 +17,7 @@ public class ConferenceProducer implements Producer {
 	}
 
 	public void send(String message) {
-		Message<?> content = new GenericMessage<String>(message);
+		Message<?> content = new GenericMessage<>(message);
 		toKafka.send(content);
 	}
 

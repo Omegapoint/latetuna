@@ -26,7 +26,7 @@ public class KafkaConfig {
 	@Value("${kafka.messageKey}")
 	private String messageKey;
 
-	@Value("${kafka.broker.address:localhost:9092}")
+	@Value("${kafka.broker.address}")
 	private String brokerAddress;
 
 

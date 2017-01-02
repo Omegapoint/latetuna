@@ -24,7 +24,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile project(':eventbus-client')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.integration:spring-integration-kafka:2.1.0.RELEASE')
     compile('au.com.dius:pact-jvm-consumer-junit_2.11:3.2.6')
