@@ -41,14 +41,14 @@ services:
       - zookeeper:zk
     environment:
       # For now it is not possible to run services within docker and IDE, you
-      # have to choose either.
+      # have to choose either, unless kafka is added to /etc/hosts
       #
       # Use this line when starting services from IDE
-      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092"
+      #KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092"
       # Use this line when running the services with docker
-      #KAFKA_LISTENERS: "PLAINTEXT://kafka:9092"
+      KAFKA_LISTENERS: "PLAINTEXT://kafka:9092"
       KAFKA_CREATE_TOPICS: "si.topic:1:1"
-      KAFKA_ZOOKEEPER_CONNECT: zk:2181
+      KAFKA_ZOOKEEPER_CONNECT: "zk:2181"
       KAFKA_DELETE_TOPIC_ENABLED: "true"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

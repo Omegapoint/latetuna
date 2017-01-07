@@ -5,6 +5,6 @@ server:
   port: 8091
 kafka:
   broker:
-    address: localhost:9092
+    address: kafka:9092
   topic: si.topic
   messageKey: si.key
