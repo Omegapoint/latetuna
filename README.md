@@ -8,23 +8,14 @@ In house learning project. The purpose of this project is to investigate and try
 
 ## Create and activate a docker-machine
 
-#### MacOSX
-1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
-1. Install DockerToolbox: https://www.docker.com/products/docker-toolbox
-1. Create a VirtualBox machine to handle latetuna:
-```
-docker-machine create --driver virtualbox latetuna
-```
-1. Bootstrap the environment:
-```
-# Yes, that's a dot at the beginning of this line:
-. setup.sh latetuna
-```
+1. Go to https://www.docker.com/products/docker
+1. Download docker for your platform
+1. Follow the instructions in the _Getting started tutorial_
 
 #### Build images
-
 ```
 gradle dockerBuildImage
+docker-compose build
 ```
 
 Pro tip: Gradle supports camelCased shortcuts, so ```gradle dBI``` works as well!
@@ -33,6 +24,16 @@ Pro tip: Gradle supports camelCased shortcuts, so ```gradle dBI``` works as well
 ```
 docker-compose up
 ```
+
+#### Development tips
+* make an alias for docker-compose i.e. `alias dc=docker-compose`
+* in order to run services with docker and from your IDE you have to add an alias for kafka to /etc/hosts or equivalent
+```
+127.0.0.1    kafka
+```
+* running the gui from the subproject instead from the docker container make the turn around time significant shorter. Run `npm run dev` to start the webpack dev-server
+
+
 
 ## Architecture
 ![alt tag](docs/latetuna.jpg?raw=true "latetuna")

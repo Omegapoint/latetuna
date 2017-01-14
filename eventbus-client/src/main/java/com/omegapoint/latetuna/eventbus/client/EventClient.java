@@ -15,6 +15,7 @@ public class EventClient {
     }
 
     public void send(String topic, String key, String value) {
+        System.out.println(topic);
         producer.send(new ProducerRecord<String, String>(topic, key, value));
         producer.flush();
     }
