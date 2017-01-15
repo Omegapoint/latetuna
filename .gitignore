@@ -4,3 +4,4 @@
 data_kafka/
 latetuna.iml
 latetuna.ipr
+*.log
