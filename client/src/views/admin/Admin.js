@@ -15,7 +15,7 @@ class Admin extends Component {
 		this.close = this.close.bind(this);
 		this.open = this.open.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleNameChange = this.handleChange.bind(this);
+		this.handleNameChange = this.handleNameChange.bind(this);
 		this.handleFromChange = this.handleFromChange.bind(this);
 		this.handleToChange = this.handleToChange.bind(this);
 		this.handleTagsChange = this.handleTagsChange.bind(this);
@@ -101,7 +101,7 @@ class Admin extends Component {
 											<Col sm={10}>
 												<FormControl
 													value={this.state.name}
-													onChange={this.handleChange}
+													onChange={this.handleNameChange}
 													type="text" placeholder="Name" />
 											</Col>
 										</FormGroup>
@@ -111,10 +111,10 @@ class Admin extends Component {
 												Dates
 											</Col>
 											<Col sm={3}>
-												<FormControl value={this.state.from} onChange={this.handleChange} type="text" placeholder="2017-05-01" />
+												<FormControl value={this.state.from} onChange={this.handleFromChange} type="text" placeholder="2017-05-01" />
 											</Col>
 											<Col sm={3}>
-												<FormControl value={this.state.to} onChange={this.handleChange} type="text" placeholder="2017-05-05" />
+												<FormControl value={this.state.to} onChange={this.handleToChange} type="text" placeholder="2017-05-05" />
 											</Col>
 										</FormGroup>
 
@@ -123,7 +123,7 @@ class Admin extends Component {
 												Tags
 											</Col>
 											<Col sm={10}>
-												<FormControl value={this.state.tags} onChange={this.handleChange} type="text" placeholder="Keywords" />
+												<FormControl value={this.state.tags} onChange={this.handleTagsChange} type="text" placeholder="Keywords" />
 											</Col>
 										</FormGroup>
 
@@ -133,7 +133,7 @@ class Admin extends Component {
 												Domain
 											</Col>
 											<Col sm={10}>
-												<FormControl value={this.state.domain} onChange={this.handleChange} type="text" placeholder="www.yourdomain.com" />
+												<FormControl value={this.state.domain} onChange={this.handleDomainChange} type="text" placeholder="www.yourdomain.com" />
 											</Col>
 										</FormGroup>
 									</Form>
