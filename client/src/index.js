@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Router, Route, browserHistory } from 'react-router'
 
-import Landing from './components/landing/Landing';
+import Landing from './views/landing/Landing';
 import Admin from './views/admin/Admin';
 import './index.css';
 

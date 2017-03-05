@@ -7,14 +7,12 @@ app.use(express.static('public'));
 app.use('/proposal', proxy({
 		target:'http://localhost:8090',
 		pathRewrite: {'^/proposal': ''},
-		changeOrigin:true,
-		logLevel:'debug'
+		changeOrigin:true
 }));
 app.use('/conference', proxy({
 	target:'http://localhost:8091',
 	pathRewrite: {'^/conference': ''},
-	changeOrigin:true,
-	logLevel:'debug'
+	changeOrigin:true
 }));
 
 app.listen(3001, function () {
