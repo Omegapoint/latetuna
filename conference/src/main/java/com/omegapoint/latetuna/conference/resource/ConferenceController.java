@@ -30,6 +30,7 @@ public class ConferenceController {
 
 	@RequestMapping(value = "/", method = POST)
 	public String create(@RequestBody Conference conference) {
+		this.conferenceReadRepository.persist(conference);
 		producer.send(JsonUtil.toJson(conference));
 		return conference.id().toString();
 	}

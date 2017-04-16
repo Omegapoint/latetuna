@@ -41,7 +41,6 @@ class ConferenceModal extends Component {
 				tags: this.state.tags,
 				domain: this.state.domain
 		};
-		console.log(JSON.stringify(conference));
 		fetch('/conference', {
 				method: 'POST',
 				headers: {
