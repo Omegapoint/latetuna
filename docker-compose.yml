@@ -4,6 +4,8 @@ version: '2'
 services:
   proposal:
     image: latetuna/proposal:latest
+    ports:
+      - "8090:8090"
     links:
       - kafka
 #    environment:
@@ -12,6 +14,8 @@ services:
       - "8090:8090"
   conference:
     image: latetuna/conference:latest
+    ports:
+      - "8091:8091"
     links:
       - kafka
     ports:
