@@ -1,0 +1,24 @@
+
+# http://EditorConfig.org
+# top-most EditorConfig file
+root = true
+
+# Windos-style newlines with a newline ending most files
+[*.{java,properties,js,xml,bat}]
+end_of_line = crlf
+insert_final_newline = true
+
+# UNIX-style newlines for schellscripts
+[*.{sh}]
+end_of_line = lf
+insert_final_newline = true
+
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*]
+charset = utf-8
+
+# Tab indentation
+[*.{java,properties,js,xml,yaml,yml}]
+indent_style = tab

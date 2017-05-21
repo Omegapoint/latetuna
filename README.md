@@ -33,6 +33,10 @@ docker-compose up
 ```
 * running the gui from the subproject instead from the docker container make the turn around time significant shorter. Run `npm run dev` to start the webpack dev-server
 
+* remove all unused docker images from this [gist](https://gist.github.com/ngpestelos/4fc2e31e19f86b9cf10b)
+```
+docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
+```
 
 
 ## Architecture

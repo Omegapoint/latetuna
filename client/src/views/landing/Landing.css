@@ -1,0 +1,39 @@
+.Landing {
+  text-align: center;
+}
+
+.Landing > .nav {
+  margin-bottom: 0px;
+}
+
+.Landing-logo {
+  height: 80px;
+}
+
+.Landing-header {
+  background-image: url(./background.jpg);
+  background-color: #222;
+  height: 500px;
+  padding: 20px;
+  color: black;
+}
+
+.Landing-jumbo {
+  margin-top: 90px;
+
+}
+
+.titleStyle {
+  padding: 25px;
+  width: 70%;
+  background-color: #fff;
+  color: black;
+}
+
+.Landing-header > h1 {
+}
+
+
+.Landing-intro {
+  font-size: large;
+}
